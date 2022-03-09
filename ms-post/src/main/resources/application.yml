@@ -1,0 +1,28 @@
+spring:
+  data:
+    mongodb:
+      database: instaclone_post
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/auth/realms/instagram-clone
+
+keycloak:
+  auth-server-url: http://localhost:8080/auth
+  realm: instagram-clone
+  resource: ms-post
+  ssl-required: external
+  use-resource-role-mappings: true
+
+app:
+  keycloak:
+    login:
+      url: http://localhost:8080/auth/realms/instagram-clone/protocol/openid-connect/token
+    grant-type: password
+    client-id: ${keycloak.resource}
+    client-secret: p4eGohl2B2l8Nk1RvdJhRXrHElpYhun7
+
+server:
+  port: 8001
