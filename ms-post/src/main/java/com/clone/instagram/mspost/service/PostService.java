@@ -1,6 +1,5 @@
 package com.clone.instagram.mspost.service;
 
-import java.security.Principal;
 import java.util.List;
 import com.clone.instagram.mspost.dto.request.PostDTO;
 import com.clone.instagram.mspost.entity.Post;
@@ -24,10 +23,18 @@ public class PostService {
     return postRepository.findByUsername(username);
   }
 
-  public Post createPost(PostDTO postDTO) {
+  public List<Post> listByIds(List<String> ids) {
+    return postRepository.findByIdInOrderByCreatedAtDesc(ids);
+  }
+
+  public Post createPost(PostDTO postDTO, String username) {
     log.info("creating post for image url {}", postDTO.getImageUrl());
 
     Post postToSave = postMapper.toModel(postDTO);
+
+    // TODO: remove when audience is fixed 
+    postToSave.setUsername(username);
+    postToSave.setLastModifiedBy(username);
 
     Post savedPost = postRepository.save(postToSave);
 

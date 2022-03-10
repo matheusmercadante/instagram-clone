@@ -1,11 +1,9 @@
 package com.clone.instagram.mspost.entity;
 
 import java.time.Instant;
-import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Data;
 import lombok.NonNull;
@@ -18,7 +16,8 @@ public class Post {
   @Id
   private String id;
 
-  @CreatedBy
+  // TODO: fix audience
+  // @CreatedBy
   private String username;
 
   @NonNull
@@ -30,7 +29,8 @@ public class Post {
   @CreatedDate
   private Instant createdAt;
 
-  @LastModifiedDate
+  // TODO: fix audience
+  // @LastModifiedDate
   private Instant updatedAt;
 
   @LastModifiedBy
