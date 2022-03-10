@@ -1,3 +1,14 @@
+server:
+  port: 8001
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.boot.autoconfigure: INFO
+    org.springframework.web.client.RestTemplate: DEBUG
+
 spring:
   data:
     mongodb:
@@ -7,22 +18,32 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/auth/realms/instagram-clone
+          issuer-uri: http://localhost:8080/realms/instagram-clone
+# spring:
+#   data:
+#     mongodb:
+#       database: instaclone_post
 
-keycloak:
-  auth-server-url: http://localhost:8080/auth
-  realm: instagram-clone
-  resource: ms-post
-  ssl-required: external
-  use-resource-role-mappings: true
+#   security:
+#     oauth2:
+#       resourceserver:
+#         jwt:
+#           issuer-uri: http://localhost:8080/auth/realms/instagram-clone
 
-app:
-  keycloak:
-    login:
-      url: http://localhost:8080/auth/realms/instagram-clone/protocol/openid-connect/token
-    grant-type: password
-    client-id: ${keycloak.resource}
-    client-secret: p4eGohl2B2l8Nk1RvdJhRXrHElpYhun7
+# keycloak:
+#   auth-server-url: http://localhost:8080/auth
+#   realm: instagram-clone
+#   resource: ms-post
+#   ssl-required: external
+#   use-resource-role-mappings: true
 
-server:
-  port: 8001
+# app:
+#   keycloak:
+#     login:
+#       url: http://localhost:8080/auth/realms/instagram-clone/protocol/openid-connect/token
+#     grant-type: password
+#     client-id: ${keycloak.resource}
+#     client-secret: p4eGohl2B2l8Nk1RvdJhRXrHElpYhun7
+
+# server:
+#   port: 8001
