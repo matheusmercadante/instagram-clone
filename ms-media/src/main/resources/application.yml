@@ -1,0 +1,26 @@
+spring:
+  data:
+    mongodb:
+      database: instaclone_media
+
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 5MB
+      max-request-size: 20MB
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/instagram-clone
+
+file:
+  upload-dir: /home/mercadante/Documents/projects/instagram-clone/ms-media/tmp
+
+  path:
+    prefix: "teste"
+
+server:
+  port: 8090
